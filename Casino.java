@@ -107,14 +107,14 @@ public class Casino extends javax.swing.JFrame {
       labelSuma.setBackground(Color.red);
      double sum = Integer.parseInt(suma);
      String sumaPechalba = sum*10+"";
-             btnStartGame.hide();
+
      labelPechalba.setBackground(Color.green);
       labelPechalba.setText(sumaPechalba+" лв.");
     }//GEN-LAST:event_btnSumaActionPerformed
 
     private void btnStartGameActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartGameActionPerformed
      
-
+             btnStartGame.hide();
       
     }//GEN-LAST:event_btnStartGameActionPerformed
 
