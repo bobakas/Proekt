@@ -33,7 +33,7 @@ public class Casino extends javax.swing.JFrame {
 
         jLabel2.setText("Пари на влизане:");
 
-        btnStartGame.setText("BAMBET CASINO");
+        btnStartGame.setText("BamBet CASINO");
         btnStartGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartGameActionPerformed(evt);
@@ -95,6 +95,7 @@ public class Casino extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
+    
     private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
       Scanner input = new Scanner(System.in);
       String suma = JOptionPane.showInputDialog("Въведете сумата, с която искате да влезете");
