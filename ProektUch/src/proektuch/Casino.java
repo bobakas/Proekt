@@ -33,7 +33,7 @@ public class Casino extends javax.swing.JFrame {
 
         jLabel2.setText("Пари на влизане:");
 
-        btnStartGame.setText("BamBet CASINO");
+        btnStartGame.setText("BAMBet CASINO");
         btnStartGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnStartGameActionPerformed(evt);
