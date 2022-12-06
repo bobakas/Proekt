@@ -102,7 +102,7 @@ new NewJFrame().setVisible(true);// TODO add your handling code here:
 
     private void bjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjActionPerformed
       this.dispose();
-      
+      new BlackJack().setVisible(true);
     }//GEN-LAST:event_bjActionPerformed
 
     private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
