@@ -8,6 +8,7 @@ import java.awt.Color;
 import java.util.Scanner;
 import javax.swing.JOptionPane;
 
+
 /**
  *
  * @author boristk
@@ -81,8 +82,6 @@ return suma;
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Сума на влизане: ");
 
-        labelSuma.setEditable(false);
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
@@ -143,12 +142,15 @@ new NewJFrame().setVisible(true);// TODO add your handling code here:
 
        private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         Scanner input = new Scanner(System.in);
-        suma=JOptionPane.showInputDialog("Въведете сумата, с която искате да влезете");
-        labelSuma.setText(suma+" лв.");
+        suma=labelSuma.getText();
+       
+       double pari = Integer.parseInt(suma);
+        if(pari==0) JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+        else {
+            labelSuma.setText(suma+"лв.");
         labelSuma.setBackground(Color.red);
-        double pari = Integer.parseInt(suma);
     }//GEN-LAST:event_btnSumaActionPerformed
-
+       }
     /**
      * @param args the command line arguments
      */
