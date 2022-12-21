@@ -1,6 +1,7 @@
 package javaapplication3;
 
 
+import java.awt.Color;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
@@ -78,6 +79,12 @@ boolean passCheck(String pass){
         txtPass = new javax.swing.JPasswordField();
         txtPass2 = new javax.swing.JPasswordField();
         labelProfilna = new javax.swing.JLabel();
+        jPanel3 = new javax.swing.JPanel();
+        errorNames = new javax.swing.JLabel();
+        errorUsername = new javax.swing.JLabel();
+        errorEmail = new javax.swing.JLabel();
+        errorPass = new javax.swing.JLabel();
+        errorPass2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -109,6 +116,7 @@ boolean passCheck(String pass){
         labelPass2.setText("Потвърди парола:");
 
         txtNames.setBackground(new java.awt.Color(180, 180, 180));
+        txtNames.setBorder(javax.swing.BorderFactory.createEtchedBorder());
         txtNames.setSelectionColor(new java.awt.Color(51, 51, 51));
 
         txtUsername.setBackground(new java.awt.Color(180, 180, 180));
@@ -124,6 +132,7 @@ boolean passCheck(String pass){
 
         txtPass.setBackground(new java.awt.Color(180, 180, 180));
         txtPass.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
+        txtPass.setCursor(new java.awt.Cursor(java.awt.Cursor.TEXT_CURSOR));
         txtPass.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 txtPassActionPerformed(evt);
@@ -193,6 +202,53 @@ boolean passCheck(String pass){
             }
         });
 
+        jPanel3.setBackground(new java.awt.Color(102, 102, 102));
+
+        errorNames.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        errorNames.setForeground(new java.awt.Color(242, 148, 50));
+
+        errorUsername.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        errorUsername.setForeground(new java.awt.Color(242, 148, 50));
+
+        errorEmail.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        errorEmail.setForeground(new java.awt.Color(242, 148, 50));
+
+        errorPass.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        errorPass.setForeground(new java.awt.Color(242, 148, 50));
+
+        errorPass2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        errorPass2.setForeground(new java.awt.Color(242, 148, 50));
+
+        javax.swing.GroupLayout jPanel3Layout = new javax.swing.GroupLayout(jPanel3);
+        jPanel3.setLayout(jPanel3Layout);
+        jPanel3Layout.setHorizontalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(errorPass2, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                    .addComponent(errorPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorNames, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(errorUsername, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+        jPanel3Layout.setVerticalGroup(
+            jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel3Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(errorNames, javax.swing.GroupLayout.PREFERRED_SIZE, 22, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(29, 29, 29)
+                .addComponent(errorUsername, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(errorEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 26, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(errorPass, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(errorPass2, javax.swing.GroupLayout.DEFAULT_SIZE, 25, Short.MAX_VALUE)
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -200,7 +256,9 @@ boolean passCheck(String pass){
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap(157, Short.MAX_VALUE)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(146, 146, 146))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addGap(254, 254, 254)
                 .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -213,7 +271,11 @@ boolean passCheck(String pass){
                 .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(36, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(100, 100, 100))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -242,6 +304,14 @@ boolean passCheck(String pass){
         System.out.println(userCheck(txtUsername.getText()));
         System.out.println(emailCheck(txtEmail.getText()));
         System.out.println(passCheck(txtPass.getText()));
+        if(namesCheck(txtNames.getText())==false) {
+            
+            errorNames.setText("*Невалидно име");
+        }
+        if(userCheck(txtUsername.getText())==false) errorUsername.setText("*Невалидно потребителско име");
+        if(emailCheck(txtEmail.getText())==false) errorEmail.setText("*Невалиден имейл");
+        if(passCheck(txtPass.getText())==false) errorPass.setText("*Невалидна парола");
+        if((!txtPass2.getText().equals(txtPass.getText()))) errorPass2.setText("*Паролата не съвпада");
         
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -291,9 +361,15 @@ boolean passCheck(String pass){
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnConfirm;
+    private javax.swing.JLabel errorEmail;
+    private javax.swing.JLabel errorNames;
+    private javax.swing.JLabel errorPass;
+    private javax.swing.JLabel errorPass2;
+    private javax.swing.JLabel errorUsername;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
+    private javax.swing.JPanel jPanel3;
     private javax.swing.JLabel labelEmail;
     private javax.swing.JLabel labelNames;
     private javax.swing.JLabel labelPass;

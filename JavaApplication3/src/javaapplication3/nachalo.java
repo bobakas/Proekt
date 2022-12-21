@@ -28,6 +28,7 @@ return suma;
         labelSuma.setText(null);
         btnCasino.setBackground(Color.red);
         bj.setBackground(Color.red);
+
         if(labelSuma.equals(null+"лв.")) labelSuma.setText("0 лв.");
         else  labelSuma.setText(suma+" лв.");
 
@@ -170,7 +171,7 @@ new NewJFrame().setVisible(true);// TODO add your handling code here:
        private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         Scanner input = new Scanner(System.in);
         suma=labelSuma.getText();
-       
+               labelSuma.setEditable(false);
        double pari = Integer.parseInt(suma);
         if(pari==0 || labelSuma.equals(null)) JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
         else {
