@@ -74,9 +74,9 @@ boolean passCheck(String pass){
         txtNames = new javax.swing.JTextField();
         txtUsername = new javax.swing.JTextField();
         txtEmail = new javax.swing.JTextField();
-        txtPass2 = new javax.swing.JTextField();
         btnConfirm = new javax.swing.JButton();
         txtPass = new javax.swing.JPasswordField();
+        txtPass2 = new javax.swing.JPasswordField();
         labelProfilna = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -115,8 +115,6 @@ boolean passCheck(String pass){
 
         txtEmail.setBackground(new java.awt.Color(180, 180, 180));
 
-        txtPass2.setBackground(new java.awt.Color(180, 180, 180));
-
         btnConfirm.setText("Потвърди!");
         btnConfirm.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -131,6 +129,9 @@ boolean passCheck(String pass){
                 txtPassActionPerformed(evt);
             }
         });
+
+        txtPass2.setBackground(new java.awt.Color(180, 180, 180));
+        txtPass2.setFont(new java.awt.Font("Tahoma", 1, 11)); // NOI18N
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -148,9 +149,9 @@ boolean passCheck(String pass){
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(txtEmail)
                     .addComponent(txtNames)
-                    .addComponent(txtPass2)
                     .addComponent(txtUsername)
-                    .addComponent(txtPass))
+                    .addComponent(txtPass)
+                    .addComponent(txtPass2))
                 .addGap(19, 19, 19))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(140, 140, 140)
@@ -176,11 +177,11 @@ boolean passCheck(String pass){
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPass)
                     .addComponent(txtPass, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPass2)
                     .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(16, Short.MAX_VALUE))
         );
@@ -212,7 +213,7 @@ boolean passCheck(String pass){
                 .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(17, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -302,7 +303,7 @@ boolean passCheck(String pass){
     private javax.swing.JTextField txtEmail;
     private javax.swing.JTextField txtNames;
     private javax.swing.JPasswordField txtPass;
-    private javax.swing.JTextField txtPass2;
+    private javax.swing.JPasswordField txtPass2;
     private javax.swing.JTextField txtUsername;
     // End of variables declaration//GEN-END:variables
 }
