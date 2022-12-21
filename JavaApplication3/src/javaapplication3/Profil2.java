@@ -2,9 +2,12 @@ package javaapplication3;
 
 
 import java.awt.Color;
+import java.io.File;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
+import java.io.IOException;
+import java.io.PrintStream;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -32,10 +35,13 @@ public class Profil2 extends javax.swing.JFrame {
     public void setLabelProfilna(JLabel labelProfilna) {
         this.labelProfilna = labelProfilna;
     }
+  
+     
 boolean namesCheck(String names){
      Pattern name = Pattern.compile("[A-ZА-Я]{1}[a-zа-я]{1,20} [A-ZА-Я]{1}[a-zа-я]{1,20}");
      Matcher name1 = name.matcher(names);
      return name1.matches();
+     
 }
 boolean userCheck(String User){
     Pattern user = Pattern.compile("\\w+{5,15}");
@@ -85,6 +91,7 @@ boolean passCheck(String pass){
         errorEmail = new javax.swing.JLabel();
         errorPass = new javax.swing.JLabel();
         errorPass2 = new javax.swing.JLabel();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
@@ -156,16 +163,16 @@ boolean passCheck(String pass){
                     .addComponent(labelPass2))
                 .addGap(22, 22, 22)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(txtEmail)
+                    .addComponent(txtEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 254, Short.MAX_VALUE)
                     .addComponent(txtNames)
                     .addComponent(txtUsername)
                     .addComponent(txtPass)
                     .addComponent(txtPass2))
                 .addGap(19, 19, 19))
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(140, 140, 140)
+                .addGap(132, 132, 132)
                 .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(175, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -190,9 +197,8 @@ boolean passCheck(String pass){
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(labelPass2)
                     .addComponent(txtPass2, javax.swing.GroupLayout.PREFERRED_SIZE, 29, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(16, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 22, Short.MAX_VALUE)
+                .addComponent(btnConfirm, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
         );
 
         labelProfilna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/profile_pic_big.png"))); // NOI18N
@@ -249,6 +255,14 @@ boolean passCheck(String pass){
                 .addContainerGap())
         );
 
+        jButton1.setFont(new java.awt.Font("Tahoma", 0, 14)); // NOI18N
+        jButton1.setText("Назад");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -260,7 +274,9 @@ boolean passCheck(String pass){
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap())
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(254, 254, 254)
+                .addContainerGap()
+                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 105, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(139, 139, 139)
                 .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -268,7 +284,9 @@ boolean passCheck(String pass){
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelProfilna, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(36, Short.MAX_VALUE))
@@ -324,10 +342,34 @@ boolean passCheck(String pass){
      // new chsPhoto.setVisible(true);
     }//GEN-LAST:event_labelProfilnaMouseClicked
 
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+     this.dispose();
+     new nachalo().setVisible(true);
+    }//GEN-LAST:event_jButton1ActionPerformed
+
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])/* throws FileNotFoundException */{
+try{
+    File file = new File("profile.txt");
+    boolean filec = file.createNewFile();
+    if(filec==true){
+            System.out.println("File has been created successfully!");
+    } 
+    else{
+            System.out.println("File already excists!");
+    }
+} 
+catch(IOException e){
+            System.out.println("exception occured");
+            e.printStackTrace();
+}/*
+    PrintStream fileWriter=new PrintStream("profile.txt");
+    fileWriter.print(txtNames.getText());*/
+          
+          
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -366,6 +408,7 @@ boolean passCheck(String pass){
     private javax.swing.JLabel errorPass;
     private javax.swing.JLabel errorPass2;
     private javax.swing.JLabel errorUsername;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
