@@ -179,6 +179,12 @@ public class NewJFrame extends javax.swing.JFrame {
         sumaSM.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         sumaSM.setForeground(new java.awt.Color(255, 255, 255));
 
+        labelPlace1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/seven.png"))); // NOI18N
+
+        labelPlace2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/cash.png"))); // NOI18N
+
+        labelPlace3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication3/cherry.png"))); // NOI18N
+
         javax.swing.GroupLayout labelPlace4Layout = new javax.swing.GroupLayout(labelPlace4);
         labelPlace4.setLayout(labelPlace4Layout);
         labelPlace4Layout.setHorizontalGroup(
@@ -211,7 +217,7 @@ public class NewJFrame extends javax.swing.JFrame {
                             .addComponent(labelPlace3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGroup(labelPlace4Layout.createSequentialGroup()
                                 .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 90, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(0, 1, Short.MAX_VALUE))
+                                .addGap(0, 0, Short.MAX_VALUE))
                             .addComponent(jLabel6, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap())
         );
@@ -323,7 +329,7 @@ public class NewJFrame extends javax.swing.JFrame {
      int ikon2 = rand.nextInt(4)+1;
      int ikon3 = rand.nextInt(4)+1;
      int ikon4 = rand.nextInt(4)+1;
-             labelPlace1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/javaapplication"+  + "/ikoni.png")));
+
     }//GEN-LAST:event_jButton2ActionPerformed
 
     /**

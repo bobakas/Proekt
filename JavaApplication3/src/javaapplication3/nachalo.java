@@ -29,8 +29,7 @@ return suma;
         btnCasino.setBackground(Color.red);
         bj.setBackground(Color.red);
 
-        if(labelSuma.equals(null+"лв.")) labelSuma.setText("0 лв.");
-        else  labelSuma.setText(suma+" лв.");
+       
 
     }
 
@@ -50,6 +49,7 @@ return suma;
         jLabel1 = new javax.swing.JLabel();
         labelSuma = new javax.swing.JTextField();
         btnProfil = new javax.swing.JButton();
+        jLabel2 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setResizable(false);
@@ -96,12 +96,17 @@ return suma;
         labelSuma.setForeground(new java.awt.Color(250, 250, 250));
 
         btnProfil.setBackground(new java.awt.Color(102, 102, 102));
+        btnProfil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
         btnProfil.setText("Профил");
         btnProfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProfilActionPerformed(evt);
             }
         });
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        jLabel2.setForeground(new java.awt.Color(250, 250, 250));
+        jLabel2.setText("лв");
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -121,11 +126,13 @@ return suma;
                         .addComponent(jLabel1)
                         .addGap(51, 51, 51)
                         .addComponent(labelSuma, javax.swing.GroupLayout.DEFAULT_SIZE, 168, Short.MAX_VALUE)))
-                .addGap(120, 120, 120))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(40, 40, 40))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(btnProfil)
-                .addGap(76, 76, 76))
+                .addComponent(btnProfil, javax.swing.GroupLayout.PREFERRED_SIZE, 137, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -136,7 +143,8 @@ return suma;
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(labelSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(labelSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 63, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 140, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnCasino, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -160,7 +168,7 @@ return suma;
 
     private void btnCasinoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCasinoActionPerformed
 this.dispose();
-new NewJFrame().setVisible(true);// TODO add your handling code here:
+new SlotMachine().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btnCasinoActionPerformed
 
     private void bjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjActionPerformed
@@ -173,9 +181,12 @@ new NewJFrame().setVisible(true);// TODO add your handling code here:
         suma=labelSuma.getText();
                labelSuma.setEditable(false);
        double pari = Integer.parseInt(suma);
-        if(pari==0 || labelSuma.equals(null)) JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+        if(pari==0 || labelSuma.equals(null)){ 
+            JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+                           labelSuma.setEditable(true);
+        }
         else {
-            labelSuma.setText(suma+" лв.");
+            labelSuma.setText(suma);
         labelSuma.setBackground(Color.red);
     }//GEN-LAST:event_btnSumaActionPerformed
   } 
@@ -226,6 +237,7 @@ new NewJFrame().setVisible(true);// TODO add your handling code here:
     private javax.swing.JButton btnProfil;
     private javax.swing.JButton btnSuma;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField labelSuma;
     // End of variables declaration//GEN-END:variables
