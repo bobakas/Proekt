@@ -2,6 +2,11 @@ package javaapplication3;
 
 
 import java.awt.Color;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
@@ -20,6 +25,7 @@ public class Profil2 extends javax.swing.JFrame {
     /**
      * Creates new form Profil2
      */
+    
     public Profil2() {
         initComponents();
         
@@ -55,6 +61,31 @@ boolean passCheck(String pass){
     Matcher pass1=Pass.matcher(pass);
     return pass1.matches();
     
+}
+
+public void write_in_file(String username, String email)
+{
+       try
+       {
+            File myObj = new File("data.txt");
+            myObj.createNewFile();
+       }
+       catch(IOException e)
+       {
+            System.out.println("Can't create file!!!");
+       }
+       
+        try
+        {   
+            FileWriter myWriter = new FileWriter("data.txt", true);
+            myWriter.write(username + " " + email + "\n");         
+            myWriter.close();
+        }
+            
+        catch (IOException e)
+        {
+            System.out.println("An error occurred.");
+        }
 }
 
     /**
@@ -334,17 +365,68 @@ boolean passCheck(String pass){
         System.out.println(userCheck(txtUsername.getText()));
         System.out.println(emailCheck(txtEmail.getText()));
         System.out.println(passCheck(txtPass.getText()));
-        if(namesCheck(txtNames.getText())==false) {
-            
-            errorNames.setText("*Невалидно име");
-        }
-        if(userCheck(txtUsername.getText())==false) errorUsername.setText("*Невалидно потребителско име");
-        if(emailCheck(txtEmail.getText())==false) errorEmail.setText("*Невалиден имейл");
-        if(passCheck(txtPass.getText())==false) errorPass.setText("*Невалидна парола");
-        if((!txtPass2.getText().equals(txtPass.getText()))) errorPass2.setText("*Паролата не съвпада");
         
+        boolean check = true;
+        if(namesCheck(txtNames.getText())==false) 
+        {
+            errorNames.setText("*Невалидно име");
+            check = false;
+        }
+        if(userCheck(txtUsername.getText())==false)
+        {
+            errorUsername.setText("*Невалидно потребителско име");
+            check = false;
+        }
+        if(emailCheck(txtEmail.getText())==false)
+        {
+            errorEmail.setText("*Невалиден имейл");
+            check = false;
+        }
+        if(passCheck(txtPass.getText())==false) 
+        {
+            errorPass.setText("*Невалидна парола");
+            check = false;
+        }
+        if((!txtPass2.getText().equals(txtPass.getText()))) 
+        {
+            errorPass2.setText("*Паролата не съвпада");
+            check = false;
+        }
+        
+        if(check && check_from_file(txtUsername.getText(), txtEmail.getText()))
+            write_in_file(txtUsername.getText(), txtEmail.getText());
+        else  
+        {
+        errorEmail.setText("*Невалиден имейл");
+       errorUsername.setText("*Невалидно потребителско име");
+        }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
+    public boolean check_from_file(String username, String email)
+    {
+      try {
+      File myObj = new File("data.txt");
+      Scanner myReader = new Scanner(myObj);
+      while (myReader.hasNextLine()) 
+      {
+        String data = myReader.nextLine();        
+
+        String[] splited = data.split(" ");
+        if(splited[0] == username || splited[1] == email)
+        {
+            //System.out.println("ako");
+            return false;
+        }
+        
+      }
+      myReader.close();
+    } catch (FileNotFoundException e) {
+      System.out.println("An error occurred.");
+      e.printStackTrace();
+    }
+      return true;
+    }
+    
     private void txtPassActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtPassActionPerformed
         // TODO add your handling code here:
     }//GEN-LAST:event_txtPassActionPerformed
@@ -362,7 +444,8 @@ boolean passCheck(String pass){
     /**
      * @param args the command line arguments
      */
-    public static void main(String args[]) {
+    public static void main(String args[])
+    {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
@@ -387,8 +470,10 @@ boolean passCheck(String pass){
         //</editor-fold>
 
         /* Create and display the form */
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
+        java.awt.EventQueue.invokeLater(new Runnable()
+        {
+            public void run()
+            {
                 new Profil2().setVisible(true);
             }
         });
