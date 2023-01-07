@@ -398,7 +398,7 @@ public void write_in_file(String username, String email)
         else  
         {
         errorEmail.setText("*Невалиден имейл");
-       errorUsername.setText("*Невалидно потребителско име");
+        errorUsername.setText("*Невалидно потребителско име");
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
