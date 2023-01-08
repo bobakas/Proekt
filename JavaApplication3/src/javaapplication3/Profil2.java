@@ -10,6 +10,7 @@ import java.util.Scanner;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
 
 /*
  * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
@@ -397,8 +398,7 @@ public void write_in_file(String username, String email)
             write_in_file(txtUsername.getText(), txtEmail.getText());
         else  
         {
-        errorEmail.setText("*Невалиден имейл");
-        errorUsername.setText("*Невалидно потребителско име");
+        JOptionPane.showMessageDialog(null, "Потребителското име или имейлът вече съществуват!", "Грешка", JOptionPane.WARNING_MESSAGE);
         }
     }//GEN-LAST:event_btnConfirmActionPerformed
 
@@ -412,7 +412,7 @@ public void write_in_file(String username, String email)
         String data = myReader.nextLine();        
 
         String[] splited = data.split(" ");
-        if(splited[0] == username || splited[1] == email)
+        if(splited[0].equals(username) || splited[1].equals(email))
         {
             //System.out.println("ako");
             return false;
