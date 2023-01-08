@@ -5,30 +5,35 @@
 package javaapplication3;
 import javax.swing.JLabel;
 import java.util.Random;
+import javax.swing.JOptionPane;
 
 /**
  *
  * @author emakm
  */
 public class SlotMachine extends javax.swing.JFrame {
+      private SetGet obj = new SetGet();
+     // private double sumichka = Double.parseDouble(labelPari.getText());
 
+      
     /**
      * Creates new form SlotMachine
      */
+    
+    
     public void Shuffle(int icon){
         Random rand = new Random();
-        for(int i=1; i<=5;i++){
-       icon = rand.nextInt(5)+1;
+    icon = rand.nextInt(5)+1;
+      
+       String slotStr = Integer.toString(icon) ;
+       slot1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
        
-       String slotStr = "slot" ;
-       slot1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/profile_pic_big.png")));
-        }
     }
     public SlotMachine() {
         initComponents();
-                labelPari.setText(nachalo.suma + "лв.");
+                labelPari.setText(nachalo.suma);
     }
-
+   
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -67,29 +72,55 @@ public class SlotMachine extends javax.swing.JFrame {
         jLabel2.setPreferredSize(new java.awt.Dimension(400, 80));
 
         buttonGroup1.add(izbSedem);
+        izbSedem.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                izbSedemActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(btnClover);
+        btnClover.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCloverActionPerformed(evt);
+            }
+        });
+
+        izbCash.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                izbCashActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(btnCherry);
+        btnCherry.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnCherryActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(izbDiamond);
+        izbDiamond.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                izbDiamondActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(51, 51, 51)
+                .addGap(54, 54, 54)
                 .addComponent(izbSedem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 95, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
                 .addComponent(btnClover)
                 .addGap(92, 92, 92)
                 .addComponent(btnCherry)
-                .addGap(89, 89, 89)
+                .addGap(92, 92, 92)
                 .addComponent(izbCash)
-                .addGap(119, 119, 119)
+                .addGap(91, 91, 91)
                 .addComponent(izbDiamond)
-                .addGap(42, 42, 42))
+                .addGap(67, 67, 67))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -242,13 +273,94 @@ public class SlotMachine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-        btnStart.hide();
+    double sumichka = Double.parseDouble(labelPari.getText());
+        double zalog=0.0;
+        do{
+      String zalogString =  JOptionPane.showInputDialog(null, "Заложете сума!");
+      zalog =Double.parseDouble(zalogString);
+     //labelZalog.setText(zalogString);
+      }while(zalog>sumichka);
+      
+        obj.setBroi(0);
+        Random rand = new Random();
+         int mas[] = new int[4];
+     int icon = rand.nextInt(5)+1;
+     mas[0]=icon;
+     //if(icon==obj.getIzbor()) obj.setBroi(obj.getBroi()+1);
+        System.out.println(obj.getBroi()+", "+icon+", "+obj.getIzbor());
+     String slotStr = Integer.toString(icon) ;
+     slot1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+     
+     icon = rand.nextInt(5)+1;
+     mas[1]=icon;
+     slotStr = Integer.toString(icon) ;
+     slot2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+     
+     icon = rand.nextInt(5)+1;
+     mas[2]=icon;
+     slotStr = Integer.toString(icon) ;
+     slot3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+     
+     icon = rand.nextInt(5)+1;
+     mas[3]=icon;
+     slotStr = Integer.toString(icon) ;
+     slot4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+     
+        for (int i = 0; i < mas.length; i++) {
+            if(mas[i]==obj.getIzbor()) obj.setBroi(obj.getBroi()+1);
+        }
+         System.out.println("broq e:"+obj.getBroi());
+         if(obj.getBroi()==0) {
+             zalog*=0.75;
+             sumichka=sumichka-zalog;
+         }
+         if(obj.getBroi()==1) {
+             zalog*=0.5;
+             sumichka=sumichka-zalog;
+         }
+         if(obj.getBroi()==2) {
+             zalog*=1.25;
+             sumichka=sumichka+zalog;
+         }
+         if(obj.getBroi()==3) {
+             zalog*=1.5;
+             sumichka=sumichka+zalog;
+         }
+         if(obj.getBroi()==4) {
+             zalog*=2;
+             sumichka=sumichka+zalog;
+         }
+         System.out.println("zalog:"+zalog);
+         System.out.println("suma:"+sumichka);
+         
+         
+        
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         this.dispose();
         new nachalo().setVisible(true);
     }//GEN-LAST:event_btnBackActionPerformed
+
+    private void izbSedemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izbSedemActionPerformed
+     obj.setIzbor(1);
+    }//GEN-LAST:event_izbSedemActionPerformed
+
+    private void btnCloverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloverActionPerformed
+     obj.setIzbor(2);
+    }//GEN-LAST:event_btnCloverActionPerformed
+
+    private void btnCherryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCherryActionPerformed
+     obj.setIzbor(3);
+    }//GEN-LAST:event_btnCherryActionPerformed
+
+    private void izbCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izbCashActionPerformed
+     obj.setIzbor(4);
+    }//GEN-LAST:event_izbCashActionPerformed
+
+    private void izbDiamondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izbDiamondActionPerformed
+     obj.setIzbor(5);
+    }//GEN-LAST:event_izbDiamondActionPerformed
 
     /**
      * @param args the command line arguments

@@ -11,20 +11,14 @@ import java.util.Random;
  * @author user
  */
 public class BlackJack extends javax.swing.JFrame {
-Random rand = new Random();
+  Random rand = new Random();
+  SetGet obj = new SetGet();
     /**
      * Creates new form BlackJack
       
      */private int kartiIgrach[]=new int[10];
      private int kartiBot[]=new int[10];
-     private int i=3;
-     public int getI(){
-         return i;
-     }
-     public void setI(int i){
-         this.i=i+1;
-         System.out.println(this.i+", "+i);
-     }
+     
     /* public void inc(){
          i=i+1;
          System.out.println(i);
@@ -37,7 +31,7 @@ Random rand = new Random();
      }
     public BlackJack() {
         initComponents();
-        Random rand = new Random();
+       // Random rand = new Random();
        // nachalo obj = new nachalo();
         labelPari.setText(nachalo.suma);
         int karti[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
@@ -117,6 +111,7 @@ Random rand = new Random();
 
         hitBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         hitBtn.setText("Hit");
+        hitBtn.setEnabled(false);
         hitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hitBtnActionPerformed(evt);
@@ -271,14 +266,16 @@ Random rand = new Random();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void hitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitBtnActionPerformed
-    BlackJack mqsto = new BlackJack(); 
-    kartiIgrach[mqsto.getI()-1]=rand.nextInt(52)+1;
-    String string=Integer.toString(kartiIgrach[mqsto.getI()-1]);
-        System.out.println(getI());
-    if(this.i==3) card3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
-    mqsto.setI(mqsto.getI());
-        System.out.println(getI());
-    if(this.i==4) card4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
+    
+    kartiIgrach[obj.getI()-1]=rand.nextInt(52)+1;
+    String string=Integer.toString(kartiIgrach[obj.getI()-1]);
+        System.out.println(obj.getI());
+    if(obj.getI()==3) card3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
+   // obj.setI(obj.getI());
+        System.out.println(obj.getI());
+        kartiIgrach[obj.getI()-1]=rand.nextInt(52)+1;
+        string=Integer.toString(kartiIgrach[obj.getI()-1]);
+    if(obj.getI()==4) card4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
    /* switch(mqsto.getI()){
         case (3): 
         card3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));

@@ -180,7 +180,7 @@ new SlotMachine().setVisible(true);// TODO add your handling code here:
         Scanner input = new Scanner(System.in);
         suma=labelSuma.getText();
                labelSuma.setEditable(false);
-       double pari = Integer.parseInt(suma);
+       double pari = Double.parseDouble(suma);
         if(pari==0 || labelSuma.equals(null)){ 
             JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
                            labelSuma.setEditable(true);
