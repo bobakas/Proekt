@@ -31,7 +31,7 @@ public class SlotMachine extends javax.swing.JFrame {
     }
     public SlotMachine() {
         initComponents();
-                labelPari.setText(nachalo.suma);
+                labelPari2.setText(nachalo.suma);
     }
    
     /**
@@ -52,6 +52,11 @@ public class SlotMachine extends javax.swing.JFrame {
         izbCash = new javax.swing.JRadioButton();
         btnCherry = new javax.swing.JRadioButton();
         izbDiamond = new javax.swing.JRadioButton();
+        jPanel6 = new javax.swing.JPanel();
+        labelPari2 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        labelZalog2 = new javax.swing.JLabel();
         btnStart = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
         jPanel3 = new javax.swing.JPanel();
@@ -60,7 +65,6 @@ public class SlotMachine extends javax.swing.JFrame {
         slot3 = new javax.swing.JLabel();
         slot4 = new javax.swing.JLabel();
         btnBack = new javax.swing.JButton();
-        labelPari = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -105,31 +109,73 @@ public class SlotMachine extends javax.swing.JFrame {
             }
         });
 
+        labelPari2.setBackground(new java.awt.Color(102, 102, 102));
+        labelPari2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+
+        jLabel7.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel7.setText("Печалба:");
+
+        jLabel8.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        jLabel8.setText("Баланс:");
+
+        labelZalog2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel7)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelZalog2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(54, 54, 54)
+                .addComponent(jLabel8)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(labelPari2, javax.swing.GroupLayout.PREFERRED_SIZE, 126, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(labelZalog2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel7, javax.swing.GroupLayout.DEFAULT_SIZE, 78, Short.MAX_VALUE)
+                    .addComponent(labelPari2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jLabel8, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap())
+        );
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(54, 54, 54)
+                .addGap(51, 51, 51)
                 .addComponent(izbSedem)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 92, Short.MAX_VALUE)
+                .addGap(92, 92, 92)
                 .addComponent(btnClover)
-                .addGap(92, 92, 92)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(btnCherry)
-                .addGap(92, 92, 92)
+                .addGap(95, 95, 95)
                 .addComponent(izbCash)
-                .addGap(91, 91, 91)
+                .addGap(85, 85, 85)
                 .addComponent(izbDiamond)
-                .addGap(67, 67, 67))
+                .addGap(84, 84, 84))
             .addGroup(jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap(24, Short.MAX_VALUE)
+                .addContainerGap(12, Short.MAX_VALUE)
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 121, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -138,7 +184,9 @@ public class SlotMachine extends javax.swing.JFrame {
                     .addComponent(btnCherry, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(izbCash, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(izbDiamond, javax.swing.GroupLayout.Alignment.TRAILING))
-                .addGap(38, 38, 38))
+                .addGap(28, 28, 28)
+                .addComponent(jPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap())
         );
 
         btnStart.setBackground(new java.awt.Color(102, 102, 102));
@@ -153,10 +201,10 @@ public class SlotMachine extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 24)); // NOI18N
+        jLabel3.setFont(new java.awt.Font("Segoe UI", 1, 28)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(250, 250, 250));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel3.setText("Slot machine");
+        jLabel3.setText("Ротативка");
         jLabel3.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
 
         jPanel3.setBackground(new java.awt.Color(102, 102, 102));
@@ -209,53 +257,46 @@ public class SlotMachine extends javax.swing.JFrame {
             }
         });
 
-        labelPari.setBackground(new java.awt.Color(102, 102, 102));
-        labelPari.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
-
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 77, Short.MAX_VALUE)
+            .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addGap(52, 52, 52)
                                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 546, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(btnStart)
-                                .addGap(0, 55, Short.MAX_VALUE))
+                                .addComponent(btnStart))
                             .addGroup(jPanel1Layout.createSequentialGroup()
                                 .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 161, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(150, 150, 150)
-                                .addComponent(jLabel3)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(labelPari, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                        .addContainerGap())
-                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(93, 93, 93))))
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 213, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(76, 76, 76)
+                        .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(80, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                        .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addComponent(jLabel3))
-                    .addComponent(labelPari, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(btnBack, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3))
+                .addGap(17, 17, 17)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addGap(34, 34, 34)
-                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(btnStart)))
-                .addContainerGap(120, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, 130, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addComponent(btnStart)
+                        .addGap(38, 38, 38))))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -273,67 +314,73 @@ public class SlotMachine extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
-    double sumichka = Double.parseDouble(labelPari.getText());
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_down.png")));
+        double sumichka = Double.parseDouble(labelPari2.getText());
         double zalog=0.0;
         do{
       String zalogString =  JOptionPane.showInputDialog(null, "Заложете сума!");
       zalog =Double.parseDouble(zalogString);
-     //labelZalog.setText(zalogString);
+      //labelZalog.setText(zalogString);
       }while(zalog>sumichka);
       
         obj.setBroi(0);
         Random rand = new Random();
-         int mas[] = new int[4];
-     int icon = rand.nextInt(5)+1;
-     mas[0]=icon;
+        int mas[] = new int[4];
+    int icon = rand.nextInt(5)+1;
+    mas[0]=icon;
      //if(icon==obj.getIzbor()) obj.setBroi(obj.getBroi()+1);
-        System.out.println(obj.getBroi()+", "+icon+", "+obj.getIzbor());
-     String slotStr = Integer.toString(icon) ;
-     slot1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+    System.out.println(obj.getBroi()+", "+icon+", "+obj.getIzbor());
+    String slotStr = Integer.toString(icon) ;
+    slot1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
      
-     icon = rand.nextInt(5)+1;
-     mas[1]=icon;
-     slotStr = Integer.toString(icon) ;
-     slot2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+    icon = rand.nextInt(5)+1;
+    mas[1]=icon;
+    slotStr = Integer.toString(icon) ;
+    slot2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
      
-     icon = rand.nextInt(5)+1;
-     mas[2]=icon;
-     slotStr = Integer.toString(icon) ;
-     slot3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+    icon = rand.nextInt(5)+1;
+    mas[2]=icon;
+    slotStr = Integer.toString(icon) ;
+    slot3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
      
-     icon = rand.nextInt(5)+1;
-     mas[3]=icon;
-     slotStr = Integer.toString(icon) ;
-     slot4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
+    icon = rand.nextInt(5)+1;
+    mas[3]=icon;
+    slotStr = Integer.toString(icon) ;
+    slot4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/ikona"+slotStr+".png")));
      
         for (int i = 0; i < mas.length; i++) {
             if(mas[i]==obj.getIzbor()) obj.setBroi(obj.getBroi()+1);
         }
-         System.out.println("broq e:"+obj.getBroi());
-         if(obj.getBroi()==0) {
-             zalog*=0.75;
-             sumichka=sumichka-zalog;
-         }
-         if(obj.getBroi()==1) {
-             zalog*=0.5;
-             sumichka=sumichka-zalog;
-         }
-         if(obj.getBroi()==2) {
-             zalog*=1.25;
-             sumichka=sumichka+zalog;
-         }
-         if(obj.getBroi()==3) {
-             zalog*=1.5;
-             sumichka=sumichka+zalog;
-         }
-         if(obj.getBroi()==4) {
-             zalog*=2;
-             sumichka=sumichka+zalog;
-         }
-         System.out.println("zalog:"+zalog);
-         System.out.println("suma:"+sumichka);
+        System.out.println("broq e:"+obj.getBroi());
+        if(obj.getBroi()==0) {
+            sumichka=sumichka-zalog;
+            zalog=-zalog;
+        }
+        if(obj.getBroi()==1) {
+            zalog*=0.5;
+            sumichka=sumichka-zalog;
+            zalog=-zalog;
+        }
+        if(obj.getBroi()==2) {
+            zalog*=1.25;
+            sumichka=sumichka+zalog;
+        }
+        if(obj.getBroi()==3) {
+            zalog*=1.5;
+            sumichka=sumichka+zalog;
+        }
+        if(obj.getBroi()==4) {
+            zalog*=2;
+            sumichka=sumichka+zalog;
+        }
+        String zalogLabel= Double.toString(zalog);
+        labelZalog2.setText(zalogLabel);
+        //System.out.println("zalog:"+zalog);
+        String pariLabel= Double.toString(sumichka);
+        labelPari2.setText(pariLabel);
+        //System.out.println("suma:"+sumichka);
          
-         
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
         
     }//GEN-LAST:event_btnStartActionPerformed
 
@@ -343,23 +390,23 @@ public class SlotMachine extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void izbSedemActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izbSedemActionPerformed
-     obj.setIzbor(1);
+        obj.setIzbor(1);
     }//GEN-LAST:event_izbSedemActionPerformed
 
     private void btnCloverActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCloverActionPerformed
-     obj.setIzbor(2);
+        obj.setIzbor(2);
     }//GEN-LAST:event_btnCloverActionPerformed
 
     private void btnCherryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnCherryActionPerformed
-     obj.setIzbor(3);
+        obj.setIzbor(3);
     }//GEN-LAST:event_btnCherryActionPerformed
 
     private void izbCashActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izbCashActionPerformed
-     obj.setIzbor(4);
+        obj.setIzbor(4);
     }//GEN-LAST:event_izbCashActionPerformed
 
     private void izbDiamondActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_izbDiamondActionPerformed
-     obj.setIzbor(5);
+        obj.setIzbor(5);
     }//GEN-LAST:event_izbDiamondActionPerformed
 
     /**
@@ -407,12 +454,26 @@ public class SlotMachine extends javax.swing.JFrame {
     private javax.swing.JRadioButton izbCash;
     private javax.swing.JRadioButton izbDiamond;
     private javax.swing.JRadioButton izbSedem;
+    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
+    private javax.swing.JPanel jPanel4;
+    private javax.swing.JPanel jPanel5;
+    private javax.swing.JPanel jPanel6;
     private javax.swing.JLabel labelPari;
+    private javax.swing.JLabel labelPari1;
+    private javax.swing.JLabel labelPari2;
+    private javax.swing.JLabel labelZalog;
+    private javax.swing.JLabel labelZalog1;
+    private javax.swing.JLabel labelZalog2;
     private javax.swing.JLabel slot1;
     private javax.swing.JLabel slot2;
     private javax.swing.JLabel slot3;
