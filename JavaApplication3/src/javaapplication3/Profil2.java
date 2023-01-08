@@ -432,7 +432,8 @@ public void write_in_file(String username, String email)
     }//GEN-LAST:event_txtPassActionPerformed
 
     private void labelProfilnaMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_labelProfilnaMouseClicked
-        new chsPhoto().setVisible(true);
+       this.dispose();
+        new Avatars().setVisible(true);
      // new chsPhoto.setVisible(true);
     }//GEN-LAST:event_labelProfilnaMouseClicked
 
