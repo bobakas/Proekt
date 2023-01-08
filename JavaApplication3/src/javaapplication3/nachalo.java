@@ -6,6 +6,7 @@ package javaapplication3;
 
 import java.awt.Color;
 import java.util.Scanner;
+import javax.swing.JButton;
 import javax.swing.JOptionPane;
 
 
@@ -16,12 +17,20 @@ import javax.swing.JOptionPane;
 public class nachalo extends javax.swing.JFrame {
 
 static String suma; 
-/*public void setSuma(String suma){
+
+    public JButton getBtnSuma() {
+        return btnSuma;
+    }
+
+    public void setBtnSuma(JButton btnSuma) {
+        this.btnSuma = btnSuma;
+    }
+public void setSuma(String suma){
             this.suma=suma;
         }
 public String getSuma(){
 return suma;
-}*/
+}
     public nachalo() {
         initComponents();
        
@@ -44,7 +53,7 @@ return suma;
 
         jPanel1 = new javax.swing.JPanel();
         btnCasino = new javax.swing.JButton();
-        bj = new javax.swing.JButton();
+        zalog = new javax.swing.JButton();
         btnSuma = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
         labelSuma = new javax.swing.JTextField();
@@ -69,13 +78,13 @@ return suma;
             }
         });
 
-        bj.setBackground(new java.awt.Color(239, 72, 72));
-        bj.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
-        bj.setForeground(new java.awt.Color(250, 250, 250));
-        bj.setText("21");
-        bj.addActionListener(new java.awt.event.ActionListener() {
+        zalog.setBackground(new java.awt.Color(239, 72, 72));
+        zalog.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
+        zalog.setForeground(new java.awt.Color(250, 250, 250));
+        zalog.setText("Спортни залози");
+        zalog.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                bjActionPerformed(evt);
+                zalogActionPerformed(evt);
             }
         });
 
@@ -131,7 +140,7 @@ return suma;
                 .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bj, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zalog, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(100, 100, 100))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
@@ -159,7 +168,7 @@ return suma;
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 62, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(67, 67, 67)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(bj, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(zalog, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(btnCasino, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(71, 71, 71))
         );
@@ -172,7 +181,9 @@ return suma;
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         pack();
@@ -183,14 +194,19 @@ this.dispose();
 new SlotMachine().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_btnCasinoActionPerformed
 
-    private void bjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjActionPerformed
-      this.dispose();
-      new BlackJack().setVisible(true);
-    }//GEN-LAST:event_bjActionPerformed
+    private void zalogActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_zalogActionPerformed
+        
+        this.dispose();
+      new Zalagane().setVisible(true);
+     
+    }//GEN-LAST:event_zalogActionPerformed
 
        private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
         Scanner input = new Scanner(System.in);
-        suma=labelSuma.getText();
+        
+        try{
+            suma=labelSuma.getText();
+        
                labelSuma.setEditable(false);
        double pari = Double.parseDouble(suma);
         if(pari==0 || labelSuma.equals(null)){ 
@@ -200,8 +216,18 @@ new SlotMachine().setVisible(true);// TODO add your handling code here:
         else {
             labelSuma.setText(suma);
         labelSuma.setBackground(Color.red);
+        btnCasino.show();
+         zalog.show();
+        }
+       } catch (NumberFormatException e){
+       JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+       labelSuma.setEditable(true);
+       }
+
     }//GEN-LAST:event_btnSumaActionPerformed
-  } 
+  
+        
+       
     private void btnProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfilActionPerformed
        this.dispose();
       new Profil2().setVisible(true);
@@ -244,7 +270,6 @@ new SlotMachine().setVisible(true);// TODO add your handling code here:
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton bj;
     private javax.swing.JButton btnCasino;
     private javax.swing.JButton btnProfil;
     private javax.swing.JButton btnSuma;
@@ -253,5 +278,6 @@ new SlotMachine().setVisible(true);// TODO add your handling code here:
     private javax.swing.JLabel jLabel3;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JTextField labelSuma;
+    private javax.swing.JButton zalog;
     // End of variables declaration//GEN-END:variables
 }

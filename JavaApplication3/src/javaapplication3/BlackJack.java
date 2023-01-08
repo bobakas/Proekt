@@ -16,34 +16,21 @@ public class BlackJack extends javax.swing.JFrame {
     /**
      * Creates new form BlackJack
       
-     */private int kartiIgrach[]=new int[10];
-     private int kartiBot[]=new int[10];
+
      
     /* public void inc(){
          i=i+1;
          System.out.println(i);
      }*/
-     public int[] getKartiIgrach(){
-         return kartiIgrach;
-     }
-     public int[] getKartiBot(){
-         return kartiBot;
-     }
+    
     public BlackJack() {
         initComponents();
        // Random rand = new Random();
        // nachalo obj = new nachalo();
+       SetGet obj = new SetGet();
         labelPari.setText(nachalo.suma);
-        int karti[] = {1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 
-            17, 18, 19, 20, 21, 22, 23, 24, 25,26, 27, 28, 29, 30, 31, 32, 33, 
-            34, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46, 47, 48, 49, 50,
-            51, 52};
-        
-     kartiIgrach[0]=rand.nextInt(52)+1;
-     kartiIgrach[1]=rand.nextInt(52)+1;
-     kartiBot[0]=rand.nextInt(52)+1;
-     kartiBot[1]=rand.nextInt(52)+1;
-        
+
+
     
     /**
      * Creates new form BlackJack
@@ -68,12 +55,12 @@ public class BlackJack extends javax.swing.JFrame {
         labelPari = new javax.swing.JLabel();
         hitBtn = new javax.swing.JButton();
         standBtn = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        start = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         card4 = new javax.swing.JLabel();
         card2 = new javax.swing.JLabel();
         card1 = new javax.swing.JLabel();
-        card3 = new javax.swing.JLabel();
+        card3 = new javax.swing.JPanel();
         jPanel3 = new javax.swing.JPanel();
         label = new javax.swing.JLabel();
         labelPoints = new javax.swing.JLabel();
@@ -98,7 +85,6 @@ public class BlackJack extends javax.swing.JFrame {
         jButton1.setText("← Назад");
         jButton1.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(50, 50, 50)));
         jButton1.setFocusPainted(false);
-        jButton1.setOpaque(false);
         jButton1.setRolloverEnabled(false);
         jButton1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -121,13 +107,24 @@ public class BlackJack extends javax.swing.JFrame {
         standBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         standBtn.setText("Stand");
 
-        jButton2.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        jButton2.setText("Започни игра!");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        start.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
+        start.setText("Започни игра!");
+        start.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                startActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout card3Layout = new javax.swing.GroupLayout(card3);
+        card3.setLayout(card3Layout);
+        card3Layout.setHorizontalGroup(
+            card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 128, Short.MAX_VALUE)
+        );
+        card3Layout.setVerticalGroup(
+            card3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 0, Short.MAX_VALUE)
+        );
 
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
@@ -135,24 +132,27 @@ public class BlackJack extends javax.swing.JFrame {
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 120, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(card3, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card1, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card2, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(card4, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(card1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(card4, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(card2, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.PREFERRED_SIZE, 180, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(card3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -192,9 +192,9 @@ public class BlackJack extends javax.swing.JFrame {
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addContainerGap()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                            .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(start, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                         .addComponent(labelPari, javax.swing.GroupLayout.PREFERRED_SIZE, 101, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -233,8 +233,8 @@ public class BlackJack extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addComponent(jPanel3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(start, javax.swing.GroupLayout.PREFERRED_SIZE, 64, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(19, 19, 19))
         );
@@ -258,38 +258,14 @@ public class BlackJack extends javax.swing.JFrame {
     new nachalo().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-     String string1=Integer.toString(kartiIgrach[0]);
-     String string2=Integer.toString(kartiIgrach[1]);
-     card1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string1+".png")));
-     card2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string2+".png")));
-    }//GEN-LAST:event_jButton2ActionPerformed
+    private void startActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_startActionPerformed
+Random rand = new Random();
+int i= rand.nextInt(52)+1;
+String string = Integer.toString(i);
+     card2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
+    }//GEN-LAST:event_startActionPerformed
 
     private void hitBtnActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_hitBtnActionPerformed
-    
-    kartiIgrach[obj.getI()-1]=rand.nextInt(52)+1;
-    String string=Integer.toString(kartiIgrach[obj.getI()-1]);
-        System.out.println(obj.getI());
-    if(obj.getI()==3) card3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
-   // obj.setI(obj.getI());
-        System.out.println(obj.getI());
-        kartiIgrach[obj.getI()-1]=rand.nextInt(52)+1;
-        string=Integer.toString(kartiIgrach[obj.getI()-1]);
-    if(obj.getI()==4) card4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
-   /* switch(mqsto.getI()){
-        case (3): 
-        card3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
-        //i++;
-        mqsto.setI(mqsto.getI()+1);
-        kartiIgrach[mqsto.getI()-1]=rand.nextInt(52)+1;
-        string=Integer.toString(kartiIgrach[mqsto.getI()-1]);
-            System.out.println(mqsto.getI());
-      
-        case (4):
-        card4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/cards/"+string+".png")));
-        default:
-       // i++;
-    */
      
     }//GEN-LAST:event_hitBtnActionPerformed
 
@@ -333,11 +309,10 @@ public class BlackJack extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel card1;
     private javax.swing.JLabel card2;
-    private javax.swing.JLabel card3;
+    private javax.swing.JPanel card3;
     private javax.swing.JLabel card4;
     private javax.swing.JButton hitBtn;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
@@ -346,5 +321,6 @@ public class BlackJack extends javax.swing.JFrame {
     private javax.swing.JLabel labelPari;
     private javax.swing.JLabel labelPoints;
     private javax.swing.JButton standBtn;
+    private javax.swing.JButton start;
     // End of variables declaration//GEN-END:variables
 }

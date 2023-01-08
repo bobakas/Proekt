@@ -111,6 +111,7 @@ public class SlotMachine extends javax.swing.JFrame {
 
         labelPari2.setBackground(new java.awt.Color(102, 102, 102));
         labelPari2.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
+        labelPari2.setText("0");
 
         jLabel7.setFont(new java.awt.Font("Tahoma", 1, 20)); // NOI18N
         jLabel7.setText("Печалба:");
@@ -227,7 +228,7 @@ public class SlotMachine extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(slot1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addComponent(slot1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slot2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -249,7 +250,6 @@ public class SlotMachine extends javax.swing.JFrame {
         btnBack.setText("← Назад");
         btnBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(50, 50, 50)));
         btnBack.setFocusPainted(false);
-        btnBack.setOpaque(false);
         btnBack.setRolloverEnabled(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -454,25 +454,15 @@ public class SlotMachine extends javax.swing.JFrame {
     private javax.swing.JRadioButton izbCash;
     private javax.swing.JRadioButton izbDiamond;
     private javax.swing.JRadioButton izbSedem;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel labelPari;
-    private javax.swing.JLabel labelPari1;
     private javax.swing.JLabel labelPari2;
-    private javax.swing.JLabel labelZalog;
-    private javax.swing.JLabel labelZalog1;
     private javax.swing.JLabel labelZalog2;
     private javax.swing.JLabel slot1;
     private javax.swing.JLabel slot2;

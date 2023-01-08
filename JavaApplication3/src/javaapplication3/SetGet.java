@@ -11,7 +11,32 @@ package javaapplication3;
 public class SetGet {
     private int izbor;
     private int broi;
-    public int getIzbor(){
+    private final String[] otbori = {"Манчестър Сити", "Байерн Мюнхен", "Реал Мадрид", "ПСЖ", "Милан", /*  */
+       "Барселона", "Арсенал", "Интер", "Челси", "Ливърпул",/* */
+       "Манчестър Юнайтед", "Атлетико Мадрид", "Севилия",  "Ювентус",  "Борусия Дортрмунд",/**/
+       "РБ Лайпциг", "Байер Леверкузен", "Унион Берлин",  "Виляреал", "Аталанта", "Тотнъм"};
+    private String otbor1, otbor2;
+
+    public String getOtbor1() {
+        return otbor1;
+    }
+
+    public void setOtbor1(String otbor1) {
+        this.otbor1 = otbor1;
+    }
+
+    public String getOtbor2() {
+        return otbor2;
+    }
+
+    public void setOtbor2(String otbor2) {
+        this.otbor2 = otbor2;
+    }
+    public String[] getOtbori() {
+        return otbori;
+    }
+    
+        public int getIzbor(){
         return izbor;
     }
     public void setIzbor(int izbor){
@@ -31,5 +56,6 @@ public class SetGet {
          this.i=i+1;
          System.out.println(this.i+", "+i);
      }
+     
     
 }
