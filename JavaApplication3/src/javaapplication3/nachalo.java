@@ -16,6 +16,14 @@ import javax.swing.JOptionPane;
 public class nachalo extends javax.swing.JFrame {
 
 static String suma; 
+
+    public static String getSuma() {
+        return suma;
+    }
+
+    public static void setSuma(String suma) {
+        nachalo.suma = suma;
+    }
 /*public void setSuma(String suma){
             this.suma=suma;
         }
