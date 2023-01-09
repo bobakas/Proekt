@@ -111,7 +111,6 @@ public class BlackJack extends javax.swing.JFrame {
 
         hitBtn.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
         hitBtn.setText("Hit");
-        hitBtn.setEnabled(false);
         hitBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 hitBtnActionPerformed(evt);

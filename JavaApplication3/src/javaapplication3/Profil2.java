@@ -22,7 +22,14 @@ import javax.swing.JOptionPane;
  * @author emakm
  */
 public class Profil2 extends javax.swing.JFrame {
-
+    
+      private int pic;
+     public int getPic(){
+         return pic;
+     }
+     public void setPic(int pic){
+         this.pic=pic;
+     }
     /**
      * Creates new form Profil2
      */
@@ -252,6 +259,8 @@ public void write_in_file(String username, String email)
         );
 
         labelProfilna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/profile_pic_big.png"))); // NOI18N
+        labelProfilna.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        labelProfilna.setDisabledIcon(null);
         labelProfilna.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelProfilnaMouseClicked(evt);
@@ -362,12 +371,14 @@ public void write_in_file(String username, String email)
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnConfirmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnConfirmActionPerformed
+       
         System.out.println(namesCheck(txtNames.getText()));
         System.out.println(userCheck(txtUsername.getText()));
         System.out.println(emailCheck(txtEmail.getText()));
         System.out.println(passCheck(txtPass.getText()));
         
         boolean check = true;
+        
         if(namesCheck(txtNames.getText())==false) 
         {
             errorNames.setText("*Невалидно име");
@@ -394,7 +405,22 @@ public void write_in_file(String username, String email)
             check = false;
         }
         
-        if(check && check_from_file(txtUsername.getText(), txtEmail.getText()))
+        //check && 
+       
+        if(check==false) {
+            try{
+            JOptionPane.showMessageDialog(null, "Въведете валидни данни!", "Грешка", JOptionPane.WARNING_MESSAGE);
+            errorNames.setText(" ");
+            errorUsername.setText(" ");
+            errorEmail.setText(" ");
+            errorPass.setText(" ");
+            errorPass2.setText(" ");
+            
+        } catch(ArrayIndexOutOfBoundsException e){
+        txtNames.setText(" ");
+        }
+        }
+        if(check_from_file(txtUsername.getText(), txtEmail.getText()))
             write_in_file(txtUsername.getText(), txtEmail.getText());
         else  
         {

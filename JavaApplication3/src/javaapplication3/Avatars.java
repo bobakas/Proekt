@@ -9,7 +9,14 @@ package javaapplication3;
  * @author ema_makarova
  */
 public class Avatars extends javax.swing.JFrame {
-     
+     Profil2 obj = new Profil2();
+    /* private int pic;
+     public int getPic(){
+         return pic;
+     }
+     public void setPic(int pic){
+         this.pic=pic;
+     }*/
     /**
      * Creates new form Avatars
      */
@@ -35,6 +42,7 @@ public class Avatars extends javax.swing.JFrame {
         btnBee = new javax.swing.JRadioButton();
         btnBoy = new javax.swing.JRadioButton();
         btnGirl = new javax.swing.JRadioButton();
+        btnAvatar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -51,10 +59,33 @@ public class Avatars extends javax.swing.JFrame {
         jLabel4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/big_girl.png"))); // NOI18N
 
         buttonGroup1.add(btnBee);
+        btnBee.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBeeActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(btnBoy);
+        btnBoy.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBoyActionPerformed(evt);
+            }
+        });
 
         buttonGroup1.add(btnGirl);
+        btnGirl.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnGirlActionPerformed(evt);
+            }
+        });
+
+        btnAvatar.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        btnAvatar.setText("Потвърди!");
+        btnAvatar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAvatarActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -63,45 +94,47 @@ public class Avatars extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addComponent(jLabel4)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 12, Short.MAX_VALUE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(18, 18, 18)
                 .addComponent(jLabel2)
                 .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(236, 236, 236)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(120, 120, 120)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                .addGap(117, 117, 117)
                 .addComponent(btnGirl)
-                .addGap(248, 248, 248)
-                .addComponent(btnBoy)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(btnBoy)
+                .addGap(248, 248, 248)
                 .addComponent(btnBee)
                 .addGap(127, 127, 127))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(236, 236, 236)
+                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 306, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(323, 323, 323)
+                        .addComponent(btnAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 142, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addGap(23, 23, 23)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jLabel3)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(jPanel1Layout.createSequentialGroup()
-                                .addGap(68, 68, 68)
-                                .addComponent(jLabel4))
-                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                .addComponent(jLabel2)))))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 35, Short.MAX_VALUE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel2))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBee)
                     .addComponent(btnBoy)
-                    .addComponent(btnGirl)
-                    .addComponent(btnBee))
-                .addGap(135, 135, 135))
+                    .addComponent(btnGirl))
+                .addGap(76, 76, 76)
+                .addComponent(btnAvatar, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(34, 34, 34))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -117,6 +150,24 @@ public class Avatars extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnGirlActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnGirlActionPerformed
+    obj.setPic(1);
+    }//GEN-LAST:event_btnGirlActionPerformed
+
+    private void btnBoyActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBoyActionPerformed
+    obj.setPic(2);
+    }//GEN-LAST:event_btnBoyActionPerformed
+
+    private void btnBeeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBeeActionPerformed
+    obj.setPic(3);
+    }//GEN-LAST:event_btnBeeActionPerformed
+
+    private void btnAvatarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAvatarActionPerformed
+     this.dispose();
+     new Profil2().setVisible(true);
+     Profil2.labelProfilna.setIcon("/cards/6.png");
+    }//GEN-LAST:event_btnAvatarActionPerformed
 
     /**
      * @param args the command line arguments
@@ -154,6 +205,7 @@ public class Avatars extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAvatar;
     private javax.swing.JRadioButton btnBee;
     private javax.swing.JRadioButton btnBoy;
     private javax.swing.JRadioButton btnGirl;
