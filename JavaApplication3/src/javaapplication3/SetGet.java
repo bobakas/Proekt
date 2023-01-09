@@ -10,13 +10,29 @@ package javaapplication3;
  */
 public class SetGet {
     private int izborotbor;
-int koeficient1=0,koeficient2=0;
+int koeficient1=1,koeficient2=1;
 private final String[] otbori = {"Манчестър Сити", "Байерн Мюнхен", "Реал Мадрид", "ПСЖ", "Милан", /*  */
        "Барселона", "Арсенал", "Интер", "Челси", "Ливърпул",/* */
        "Манчестър Юнайтед", "Атлетико Мадрид", "Севилия",  "Ювентус",  "Борусия Дортрмунд",/**/
        "РБ Лайпциг", "Байер Леверкузен", "Унион Берлин",  "Виляреал", "Аталанта", "Тотнъм"};
  private String otbor1, otbor2;
+private double zalog1, zalog2;
 
+    public double getZalog1() {
+        return zalog1;
+    }
+
+    public void setZalog1(double zalog1) {
+        this.zalog1 = zalog1;
+    }
+
+    public double getZalog2() {
+        return zalog2;
+    }
+
+    public void setZalog2(double zalog2) {
+        this.zalog2 = zalog2;
+    }
     public String getOtbor1() {
         return otbor1;
     }

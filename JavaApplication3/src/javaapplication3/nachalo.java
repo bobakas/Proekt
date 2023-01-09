@@ -29,8 +29,8 @@ static String suma;
         }
 public String getSuma(){
 return suma;
-}*/
-    public nachalo() {
+}
+   */ public nachalo() {
         initComponents();
        
         labelSuma.setText(null);
@@ -193,7 +193,7 @@ new SlotMachine().setVisible(true);// TODO add your handling code here:
 
     private void bjActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_bjActionPerformed
       this.dispose();
-      new BlackJack().setVisible(true);
+      new Zalagane().setVisible(true);
     }//GEN-LAST:event_bjActionPerformed
 
        private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed

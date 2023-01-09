@@ -13,66 +13,70 @@ import javax.swing.JOptionPane;
  */
 public class Zalagane extends javax.swing.JFrame {
 
+    private SetGet obj = new SetGet();
+
     /**
      * Creates new form BlackJack2
      */
 
     public Zalagane() {
         initComponents();
+       
         nachalo obj1 = new nachalo();
         Random rand = new Random();
-        SetGet obj = new SetGet();
-        int sluchaen2=0;
+       
+        int sluchaen2 = 0;
         int sluchaen1 = rand.nextInt(21) + 0;
         obj.setOtbor1(obj.getOtbori()[sluchaen1]);
-        for(;;){
-        sluchaen2 = rand.nextInt(21) + 0;
-        if(sluchaen2!=sluchaen1) {
-            obj.setOtbor2(obj.getOtbori()[sluchaen2]);
-            break;
+        for (;;) {
+            sluchaen2 = rand.nextInt(21) + 0;
+            if (sluchaen2 != sluchaen1) {
+                obj.setOtbor2(obj.getOtbori()[sluchaen2]);
+                break;
+            }
         }
-    }
-        
+
         otbor1.setText(obj.getOtbor1());
         otbor2.setText(obj.getOtbor2());
-        if(sluchaen1<5){ 
+        if (sluchaen1 < 5) {
             koef1.setText("1.35");
             obj.setKoeficient1(2);
-        }
-        else if(sluchaen1<10){ 
+            obj.setZalog1(Integer.parseInt(koef1.getText()));
+        } else if (sluchaen1 < 10) {
             koef1.setText("1.35");
             obj.setKoeficient1(4);
-        }
-        else if(sluchaen1<15){ 
+            obj.setZalog1(Integer.parseInt(koef1.getText()));
+        } else if (sluchaen1 < 15) {
             koef1.setText("1.35");
             obj.setKoeficient1(7);
-        }
-        else{ 
+            obj.setZalog1(Integer.parseInt(koef1.getText()));
+        } else {
             koef1.setText("2.50");
             obj.setKoeficient1(10);
+            obj.setZalog1(Integer.parseInt(koef1.getText()));
         }
-        if(sluchaen2<5){ 
-            koef1.setText("1.35");
+        if (sluchaen2 < 5) {
+            koef2.setText("1.35");
             obj.setKoeficient2(2);
-        }
-        else if(sluchaen2<10){ 
-            koef1.setText("1.35");
+            obj.setZalog2(Integer.parseInt(koef2.getText()));
+        } else if (sluchaen2 < 10) {
+            koef2.setText("1.35");
             obj.setKoeficient2(4);
-        }
-        else if(sluchaen2<15){ 
-            koef1.setText("1.35");
+            obj.setZalog2(Integer.parseInt(koef2.getText()));
+        } else if (sluchaen2 < 15) {
+            koef2.setText("1.35");
             obj.setKoeficient2(7);
-        }
-        else{ 
-            koef1.setText("2.50");
+            obj.setZalog2(Integer.parseInt(koef2.getText()));
+        } else {
+            koef2.setText("2.50");
             obj.setKoeficient2(10);
+            obj.setZalog2(Integer.parseInt(koef2.getText()));
         }
-        double a = Double.parseDouble(koef1.getText()), b = Double.parseDouble(koef2.getText());
-        double c=(a+b)/2;
-        String str = Double.toString(c);
-        koefX.setText(str);
-        suma.setText(obj1.getSuma()+ "лв.");
+
+        koefX.setText("2.85");
+        suma.setText(obj1.getSuma() + "лв.");
     }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -322,61 +326,68 @@ public class Zalagane extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         Random rand = new Random();
-        SetGet obj = new SetGet();
+        nachalo obekt = new nachalo();
         Zalagane otbor = new Zalagane();
-     int pechelivsh=0;
-        try{
-        int zalozhena = Integer.parseInt(zalSuma.getText());
-        
-        } catch (NumberFormatException e){
-       JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
-        zalSuma.setText(" ");
-       }
-        int pecheli=0;
-        
-        int koeficientX = (obj.getKoeficient1()+obj.getKoeficient2());
-        int golove1=0, golove2=0;
-        int team1 = rand.nextInt(obj.getKoeficient1()*100)+1;
-        int team2 = rand.nextInt(obj.getKoeficient2()*100)+1;
-        int teamX = rand.nextInt(koeficientX*100)+1;
-        if(team1<team2 && team1<teamX) pecheli=1; //1
-        else if(team2<team1 && team2<teamX)pecheli=2; // 2
-        else pecheli=3;//x
-        if(pecheli==1) {
-        golove1 = rand.nextInt(7) + 1;
-        golove2 = rand.nextInt(golove1);
-        pechelivsh=1;
-        } 
-        else if(pecheli==2) {
-            golove2 = rand.nextInt(7) + 1;
-        golove1 = rand.nextInt(golove2);
-        pechelivsh=2;
+        int pechelivsh = 0;
+        try {
+            int zalozhena = Integer.parseInt(zalSuma.getText());
+
+        } catch (NumberFormatException e) {
+            JOptionPane.showMessageDialog(null, "Въведете валидна сума", "Невалидна сума!", JOptionPane.ERROR_MESSAGE);
+            zalSuma.setText(" ");
         }
-        else if(pecheli==3){
-        golove1 = rand.nextInt(5);
-        golove2=golove1;
-        pechelivsh=3;
+        int pecheli = 0;
+
+        int koeficientX = (obj.getKoeficient1() + obj.getKoeficient2());
+        int golove1 = 0, golove2 = 0;
+        int team1 = rand.nextInt(obj.getKoeficient1() * 100) + 1;
+        int team2 = rand.nextInt(obj.getKoeficient2() * 100) + 1;
+        int teamX = rand.nextInt(koeficientX * 100) + 1;
+        if (team1 < team2 && team1 < teamX) {
+            pecheli = 1; //1
+        } else if (team2 < team1 && team2 < teamX) {
+            pecheli = 2; // 2
+        } else {
+            pecheli = 3;//x
+        }
+        if (pecheli == 1) {
+            golove1 = rand.nextInt(7) + 1;
+            golove2 = rand.nextInt(golove1);
+            pechelivsh = 1;
+        } else if (pecheli == 2) {
+            golove2 = rand.nextInt(7) + 1;
+            golove1 = rand.nextInt(golove2);
+            pechelivsh = 2;
+        } else if (pecheli == 3) {
+            golove1 = rand.nextInt(5);
+            golove2 = golove1;
+            pechelivsh = 3;
         }
         String rezultat1 = Integer.toString(golove1) + "-" + Integer.toString(golove2);
         rezultat.setText(rezultat1);
-        
-        if(obj.getIzborotbor()==pechelivsh) suma.setText("1000");
-        
+        System.out.println(obj.getIzborotbor());
+        int balans = Integer.parseInt(obekt.getSuma());
+        int zalozheno = Integer.parseInt(zalSuma.getText());
+        float a=0;
+        if (obj.getIzborotbor() == pechelivsh && obj.getIzborotbor() == 1) {
+         //a =  zalozheno*obj.getZalog1();
+         JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+        }
+        else;
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void buttOtbor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttOtbor1ActionPerformed
-        SetGet obj = new SetGet();
+
         obj.setIzborotbor(1);
     }//GEN-LAST:event_buttOtbor1ActionPerformed
 
     private void buttDrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttDrawActionPerformed
-               SetGet obj = new SetGet();
-        obj.setIzborotbor(2);
+        obj.setIzborotbor(3);
     }//GEN-LAST:event_buttDrawActionPerformed
 
     private void buttOtbor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttOtbor2ActionPerformed
-               SetGet obj = new SetGet();
-        obj.setIzborotbor(3);
+
+        obj.setIzborotbor(2);
     }//GEN-LAST:event_buttOtbor2ActionPerformed
 
     /**
