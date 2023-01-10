@@ -187,6 +187,11 @@
               </Events>
             </Component>
             <Component class="javax.swing.JRadioButton" name="izbCash">
+              <Properties>
+                <Property name="buttonGroup" type="javax.swing.ButtonGroup" editor="org.netbeans.modules.form.RADComponent$ButtonGroupPropertyEditor">
+                  <ComponentRef name="buttonGroup1"/>
+                </Property>
+              </Properties>
               <Events>
                 <EventHandler event="actionPerformed" listener="java.awt.event.ActionListener" parameters="java.awt.event.ActionEvent" handler="izbCashActionPerformed"/>
               </Events>
@@ -336,7 +341,7 @@
             <DimensionLayout dim="0">
               <Group type="103" groupAlignment="0" attributes="0">
                   <Group type="102" alignment="0" attributes="0">
-                      <Component id="slot1" pref="133" max="32767" attributes="0"/>
+                      <Component id="slot1" pref="131" max="32767" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
                       <Component id="slot2" min="-2" pref="131" max="-2" attributes="0"/>
                       <EmptySpace max="-2" attributes="0"/>
@@ -418,7 +423,6 @@
               </Border>
             </Property>
             <Property name="focusPainted" type="boolean" value="false"/>
-            <Property name="opaque" type="boolean" value="false"/>
             <Property name="rolloverEnabled" type="boolean" value="false"/>
           </Properties>
           <Events>

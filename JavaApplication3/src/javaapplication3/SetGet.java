@@ -73,7 +73,7 @@ private double zalog1, zalog2;
     public void setIzborotbor(int izborotbor) {
         this.izborotbor = izborotbor;
     }
-    private int izbor;
+    private int izbor=0;
     private int broi;
     public int getIzbor(){
         return izbor;

@@ -10,10 +10,12 @@ import javax.swing.JOptionPane;
 /**
  *
  * @author user
- */
+ */ ;
 public class Zalagane extends javax.swing.JFrame {
-
+static int den = 1;
     private SetGet obj = new SetGet();
+    static int izborOtbor=0;
+    
 
     /**
      * Creates new form BlackJack2
@@ -21,10 +23,11 @@ public class Zalagane extends javax.swing.JFrame {
 
     public Zalagane() {
         initComponents();
-       
+       String days = "Ден " + Integer.toString(den);
+       dni.setText(days);
         nachalo obj1 = new nachalo();
         Random rand = new Random();
-       
+       nextDay.setEnabled(false);
         int sluchaen2 = 0;
         int sluchaen1 = rand.nextInt(21) + 0;
         obj.setOtbor1(obj.getOtbori()[sluchaen1]);
@@ -41,40 +44,40 @@ public class Zalagane extends javax.swing.JFrame {
         if (sluchaen1 < 5) {
             koef1.setText("1.35");
             obj.setKoeficient1(2);
-            obj.setZalog1(Integer.parseInt(koef1.getText()));
+            obj.setZalog1(Double.parseDouble(koef1.getText()));
         } else if (sluchaen1 < 10) {
-            koef1.setText("1.35");
+            koef1.setText("1.75");
             obj.setKoeficient1(4);
-            obj.setZalog1(Integer.parseInt(koef1.getText()));
+            obj.setZalog1(Double.parseDouble(koef1.getText()));
         } else if (sluchaen1 < 15) {
-            koef1.setText("1.35");
+            koef1.setText("2.00");
             obj.setKoeficient1(7);
-            obj.setZalog1(Integer.parseInt(koef1.getText()));
+            obj.setZalog1(Double.parseDouble(koef1.getText()));
         } else {
             koef1.setText("2.50");
             obj.setKoeficient1(10);
-            obj.setZalog1(Integer.parseInt(koef1.getText()));
+            obj.setZalog1(Double.parseDouble(koef1.getText()));
         }
         if (sluchaen2 < 5) {
             koef2.setText("1.35");
             obj.setKoeficient2(2);
-            obj.setZalog2(Integer.parseInt(koef2.getText()));
+            obj.setZalog2(Double.parseDouble(koef2.getText()));
         } else if (sluchaen2 < 10) {
-            koef2.setText("1.35");
+            koef2.setText("1.75");
             obj.setKoeficient2(4);
-            obj.setZalog2(Integer.parseInt(koef2.getText()));
+            obj.setZalog2(Double.parseDouble(koef2.getText()));
         } else if (sluchaen2 < 15) {
-            koef2.setText("1.35");
+            koef2.setText("2.00");
             obj.setKoeficient2(7);
-            obj.setZalog2(Integer.parseInt(koef2.getText()));
+            obj.setZalog2(Double.parseDouble(koef2.getText()));
         } else {
             koef2.setText("2.50");
             obj.setKoeficient2(10);
-            obj.setZalog2(Integer.parseInt(koef2.getText()));
+           obj.setZalog2(Double.parseDouble(koef2.getText()));
         }
 
         koefX.setText("2.85");
-        suma.setText(obj1.getSuma() + "лв.");
+        suma.setText(nachalo.suma + "лв.");
     }
 
     /**
@@ -90,7 +93,7 @@ public class Zalagane extends javax.swing.JFrame {
         jPanel1 = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        strButt = new javax.swing.JButton();
         jPanel2 = new javax.swing.JPanel();
         otbor1 = new javax.swing.JLabel();
         rezultat = new javax.swing.JLabel();
@@ -106,8 +109,12 @@ public class Zalagane extends javax.swing.JFrame {
         koef1 = new javax.swing.JLabel();
         koefX = new javax.swing.JLabel();
         koef2 = new javax.swing.JLabel();
+        Pechelish = new javax.swing.JLabel();
+        nextDay = new javax.swing.JButton();
+        dni = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jPanel1.setBackground(new java.awt.Color(102, 102, 102));
         jPanel1.setPreferredSize(new java.awt.Dimension(800, 600));
@@ -131,10 +138,11 @@ public class Zalagane extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setText("Започни");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        strButt.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        strButt.setText("Започни");
+        strButt.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                strButtActionPerformed(evt);
             }
         });
 
@@ -195,6 +203,10 @@ public class Zalagane extends javax.swing.JFrame {
         koef2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         koef2.setText(" ");
 
+        Pechelish.setFont(new java.awt.Font("Tahoma", 1, 22)); // NOI18N
+        Pechelish.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        Pechelish.setText(" ");
+
         javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
         jPanel2.setLayout(jPanel2Layout);
         jPanel2Layout.setHorizontalGroup(
@@ -209,82 +221,107 @@ public class Zalagane extends javax.swing.JFrame {
                         .addGap(74, 74, 74)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 125, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 93, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 108, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(koef1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(156, 156, 156)
-                        .addComponent(koefX, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(koef2, javax.swing.GroupLayout.PREFERRED_SIZE, 77, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(buttOtbor1)
-                        .addGap(15, 15, 15)
-                        .addComponent(otbor1, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(39, 39, 39)
-                        .addComponent(rezultat, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 38, Short.MAX_VALUE)
-                        .addComponent(otbor2, javax.swing.GroupLayout.PREFERRED_SIZE, 249, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(buttOtbor2)))
-                .addContainerGap())
-            .addGroup(jPanel2Layout.createSequentialGroup()
-                .addGap(312, 312, 312)
-                .addComponent(buttDraw)
+                        .addGap(381, 381, 381)
+                        .addComponent(buttDraw)))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(Pechelish, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addComponent(koef1, javax.swing.GroupLayout.PREFERRED_SIZE, 117, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(koefX, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(77, 77, 77)
+                                .addComponent(koef2, javax.swing.GroupLayout.PREFERRED_SIZE, 113, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
+                                .addComponent(buttOtbor1)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(otbor1, javax.swing.GroupLayout.PREFERRED_SIZE, 314, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(rezultat, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(otbor2, javax.swing.GroupLayout.PREFERRED_SIZE, 337, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(buttOtbor2)))))
+                .addGap(125, 125, 125))
         );
         jPanel2Layout.setVerticalGroup(
             jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel2Layout.createSequentialGroup()
-                .addContainerGap()
                 .addComponent(buttDraw)
-                .addGap(5, 5, 5)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(buttOtbor1)
-                    .addComponent(buttOtbor2)
-                    .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                        .addComponent(otbor1)
-                        .addComponent(rezultat)
-                        .addComponent(otbor2)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                    .addComponent(koef1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(koefX, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
-                    .addComponent(koef2, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(11, 11, 11)
                 .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(38, 38, 38)
-                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(suma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(43, 43, 43))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(buttOtbor1)
+                            .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                .addComponent(otbor1)
+                                .addComponent(rezultat)
+                                .addComponent(otbor2)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(koef1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(koefX, javax.swing.GroupLayout.DEFAULT_SIZE, 17, Short.MAX_VALUE)
+                            .addComponent(koef2))
+                        .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(38, 38, 38)
+                                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(suma, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addGroup(jPanel2Layout.createSequentialGroup()
+                                .addGap(51, 51, 51)
+                                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(Pechelish, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel2Layout.createSequentialGroup()
-                        .addGap(51, 51, 51)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
+                        .addComponent(buttOtbor2)
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
+
+        nextDay.setFont(new java.awt.Font("Tahoma", 1, 18)); // NOI18N
+        nextDay.setText("Следващ ден");
+        nextDay.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                nextDayActionPerformed(evt);
+            }
+        });
+
+        dni.setFont(new java.awt.Font("Tahoma", 1, 27)); // NOI18N
+        dni.setForeground(new java.awt.Color(255, 255, 255));
+        dni.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 218, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(286, 286, 286))
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(92, 92, 92)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(264, Short.MAX_VALUE))
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(55, 55, 55))
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(strButt, javax.swing.GroupLayout.PREFERRED_SIZE, 514, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(68, 68, 68)
+                        .addComponent(nextDay, javax.swing.GroupLayout.PREFERRED_SIZE, 246, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel1Layout.createSequentialGroup()
+                        .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(jPanel1Layout.createSequentialGroup()
+                                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 155, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(108, 108, 108)
+                                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 279, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, 828, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+            .addGroup(jPanel1Layout.createSequentialGroup()
+                .addGap(294, 294, 294)
+                .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 238, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -293,11 +330,15 @@ public class Zalagane extends javax.swing.JFrame {
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 53, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(65, 65, 65)
-                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(117, 117, 117))
+                .addComponent(dni, javax.swing.GroupLayout.PREFERRED_SIZE, 56, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jPanel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(nextDay, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(strButt, javax.swing.GroupLayout.PREFERRED_SIZE, 96, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(70, 70, 70))
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
@@ -305,15 +346,12 @@ public class Zalagane extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 796, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addComponent(jPanel1, javax.swing.GroupLayout.PREFERRED_SIZE, 840, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 23, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(27, 27, 27)
-                .addComponent(jPanel1, 573, 573, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jPanel1, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, 603, Short.MAX_VALUE)
         );
 
         pack();
@@ -324,25 +362,19 @@ public class Zalagane extends javax.swing.JFrame {
         new nachalo().setVisible(true);
     }//GEN-LAST:event_jButton1ActionPerformed
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+    private void strButtActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_strButtActionPerformed
         Random rand = new Random();
-        nachalo obekt = new nachalo();
-        Zalagane otbor = new Zalagane();
+       
         int pechelivsh = 0;
         try {
-            int zalozhena = Integer.parseInt(zalSuma.getText());
-
-        } catch (NumberFormatException e) {
-            JOptionPane.showMessageDialog(null, "Въведете валидна сума", "Невалидна сума!", JOptionPane.ERROR_MESSAGE);
-            zalSuma.setText(" ");
-        }
-        int pecheli = 0;
-
+            int pecheli = 0;
+            
         int koeficientX = (obj.getKoeficient1() + obj.getKoeficient2());
         int golove1 = 0, golove2 = 0;
         int team1 = rand.nextInt(obj.getKoeficient1() * 100) + 1;
         int team2 = rand.nextInt(obj.getKoeficient2() * 100) + 1;
         int teamX = rand.nextInt(koeficientX * 100) + 1;
+         
         if (team1 < team2 && team1 < teamX) {
             pecheli = 1; //1
         } else if (team2 < team1 && team2 < teamX) {
@@ -350,6 +382,7 @@ public class Zalagane extends javax.swing.JFrame {
         } else {
             pecheli = 3;//x
         }
+        
         if (pecheli == 1) {
             golove1 = rand.nextInt(7) + 1;
             golove2 = rand.nextInt(golove1);
@@ -363,32 +396,73 @@ public class Zalagane extends javax.swing.JFrame {
             golove2 = golove1;
             pechelivsh = 3;
         }
-        String rezultat1 = Integer.toString(golove1) + "-" + Integer.toString(golove2);
-        rezultat.setText(rezultat1);
-        System.out.println(obj.getIzborotbor());
-        int balans = Integer.parseInt(obekt.getSuma());
-        int zalozheno = Integer.parseInt(zalSuma.getText());
-        float a=0;
-        if (obj.getIzborotbor() == pechelivsh && obj.getIzborotbor() == 1) {
-         //a =  zalozheno*obj.getZalog1();
-         JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+        String result = golove1 + "-" + golove2;
+        rezultat.setText(result);
+           double balans=0;
+           int zalozheno;
+           
+           balans = Double.parseDouble(nachalo.suma);
+           zalozheno = Integer.parseInt(zalSuma.getText());
+           if(balans<zalozheno) JOptionPane.showMessageDialog(null, "Нямате толкова пари", "Беден си", JOptionPane.WARNING_MESSAGE);
+           double kfc1 = Double.parseDouble(koef1.getText());
+           double kfc2 = Double.parseDouble(koef2.getText());
+           double kfc3 = (kfc1+kfc2)/2;
+           if(izborOtbor==pechelivsh && izborOtbor==1){
+           balans=balans-zalozheno+zalozheno*kfc1; 
+                      String balansStr = Double.toString(balans);
+           suma.setText(balansStr);
+           Pechelish.setText("Позна резултатът от мача!!!");
+           }
+           else if(izborOtbor==pechelivsh && izborOtbor==2){
+           balans=balans-zalozheno+zalozheno*kfc2; 
+           String balansStr = Double.toString(balans);
+           suma.setText(balansStr);
+            Pechelish.setText("Позна резултатът от мача!!!");
+           }
+           else if(izborOtbor==pechelivsh && izborOtbor==3){
+           balans=balans-zalozheno+zalozheno*kfc3; 
+                      String balansStr = Double.toString(balans);
+           suma.setText(balansStr);
+            Pechelish.setText("Позна резултатът от мача!!!");
+           }
+           else if(izborOtbor!=pechelivsh){
+               balans=balans - zalozheno;
+                          String balansStr = Double.toString(balans);
+           suma.setText(balansStr);
+            Pechelish.setText("Загуби заложените си пари :(!!!");
+           }
+       
+       }catch(ArithmeticException b){
+           JOptionPane.showMessageDialog(null, "Въведете валидна сума", "", JOptionPane.PLAIN_MESSAGE);
         }
-        else;
-    }//GEN-LAST:event_jButton2ActionPerformed
+        catch(NumberFormatException d){
+       JOptionPane.showMessageDialog(null, "Въведете валидна сума", "", JOptionPane.WARNING_MESSAGE);
+       }catch(NullPointerException f){
+       JOptionPane.showMessageDialog(null, "Не си поянал от началото", "", JOptionPane.ERROR_MESSAGE);
+       }
+        strButt.setEnabled(false);
+        nextDay.setEnabled(true);
+    }//GEN-LAST:event_strButtActionPerformed
 
     private void buttOtbor1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttOtbor1ActionPerformed
 
-        obj.setIzborotbor(1);
+        izborOtbor=1;
     }//GEN-LAST:event_buttOtbor1ActionPerformed
 
     private void buttDrawActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttDrawActionPerformed
-        obj.setIzborotbor(3);
+        izborOtbor=3;
     }//GEN-LAST:event_buttDrawActionPerformed
 
     private void buttOtbor2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_buttOtbor2ActionPerformed
 
-        obj.setIzborotbor(2);
+        izborOtbor=2;
     }//GEN-LAST:event_buttOtbor2ActionPerformed
+
+    private void nextDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_nextDayActionPerformed
+        this.dispose();
+        new Zalagane().setVisible(true);
+        den=den+1;
+    }//GEN-LAST:event_nextDayActionPerformed
 
     /**
      * @param args the command line arguments
@@ -427,12 +501,13 @@ public class Zalagane extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel Pechelish;
     private javax.swing.JRadioButton buttDraw;
     private javax.swing.JRadioButton buttOtbor1;
     private javax.swing.JRadioButton buttOtbor2;
     private javax.swing.ButtonGroup buttonGroup1;
+    private javax.swing.JLabel dni;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
@@ -442,9 +517,11 @@ public class Zalagane extends javax.swing.JFrame {
     private javax.swing.JLabel koef1;
     private javax.swing.JLabel koef2;
     private javax.swing.JLabel koefX;
+    private javax.swing.JButton nextDay;
     private javax.swing.JLabel otbor1;
     private javax.swing.JLabel otbor2;
     private javax.swing.JLabel rezultat;
+    private javax.swing.JButton strButt;
     private javax.swing.JLabel suma;
     private javax.swing.JTextPane zalSuma;
     // End of variables declaration//GEN-END:variables

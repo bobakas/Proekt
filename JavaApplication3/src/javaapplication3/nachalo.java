@@ -32,7 +32,7 @@ return suma;
 }
    */ public nachalo() {
         initComponents();
-       
+       btnProfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/" +Integer.toString(Avatars.izborAvatar+4) +".png"))); 
         labelSuma.setText(null);
         //btnCasino.setBackground(Color.red);
         //bj.setBackground(Color.red);
@@ -80,7 +80,7 @@ return suma;
         bj.setBackground(new java.awt.Color(239, 72, 72));
         bj.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
         bj.setForeground(new java.awt.Color(250, 250, 250));
-        bj.setText("21");
+        bj.setText("НеПеМеГе Футбол");
         bj.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 bjActionPerformed(evt);
@@ -106,7 +106,7 @@ return suma;
 
         btnProfil.setBackground(new java.awt.Color(102, 102, 102));
         btnProfil.setFont(new java.awt.Font("Tahoma", 1, 14)); // NOI18N
-        btnProfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/profile_pic_small.png"))); // NOI18N
+        btnProfil.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/4.png"))); // NOI18N
         btnProfil.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnProfilActionPerformed(evt);
@@ -131,16 +131,16 @@ return suma;
                         .addGap(72, 72, 72)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                        .addComponent(labelSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(labelSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(41, 41, 41)
+                        .addComponent(btnSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGap(110, 110, 110)
-                        .addComponent(btnCasino, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(41, 41, 41)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(bj, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnSuma, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(btnCasino, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(58, 58, 58)
+                        .addComponent(bj, javax.swing.GroupLayout.PREFERRED_SIZE, 280, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(100, 100, 100))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -197,19 +197,29 @@ new SlotMachine().setVisible(true);// TODO add your handling code here:
     }//GEN-LAST:event_bjActionPerformed
 
        private void btnSumaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSumaActionPerformed
-        Scanner input = new Scanner(System.in);
+
+        try{
+               Scanner input = new Scanner(System.in);
         suma=labelSuma.getText();
                labelSuma.setEditable(false);
        double pari = Double.parseDouble(suma);
-        if(pari==0 || labelSuma.equals(null)){ 
+        if(pari<=0){ 
             JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
                            labelSuma.setEditable(true);
         }
         else {
             labelSuma.setText(suma);
         labelSuma.setBackground(Color.red);
+        }
+       }catch(NumberFormatException f){
+           JOptionPane.showMessageDialog(null,"Въведете валидна сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+           labelSuma.setEditable(true);
+       } catch(NullPointerException g){
+       JOptionPane.showMessageDialog(null,"Въведете валиднereа сума", "Невалидна сума!",JOptionPane.ERROR_MESSAGE);
+       labelSuma.setEditable(true);
+       }
     }//GEN-LAST:event_btnSumaActionPerformed
-  } 
+   
     private void btnProfilActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnProfilActionPerformed
        this.dispose();
       new Profil2().setVisible(true);

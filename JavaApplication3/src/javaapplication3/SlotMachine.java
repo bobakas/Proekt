@@ -89,6 +89,7 @@ public class SlotMachine extends javax.swing.JFrame {
             }
         });
 
+        buttonGroup1.add(izbCash);
         izbCash.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 izbCashActionPerformed(evt);
@@ -227,7 +228,7 @@ public class SlotMachine extends javax.swing.JFrame {
         jPanel3Layout.setHorizontalGroup(
             jPanel3Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel3Layout.createSequentialGroup()
-                .addComponent(slot1, javax.swing.GroupLayout.DEFAULT_SIZE, 133, Short.MAX_VALUE)
+                .addComponent(slot1, javax.swing.GroupLayout.DEFAULT_SIZE, 131, Short.MAX_VALUE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(slot2, javax.swing.GroupLayout.PREFERRED_SIZE, 131, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -249,7 +250,6 @@ public class SlotMachine extends javax.swing.JFrame {
         btnBack.setText("← Назад");
         btnBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(50, 50, 50)));
         btnBack.setFocusPainted(false);
-        btnBack.setOpaque(false);
         btnBack.setRolloverEnabled(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -315,13 +315,16 @@ public class SlotMachine extends javax.swing.JFrame {
 
     private void btnStartActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnStartActionPerformed
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_down.png")));
+        try{
+            System.out.println(1/obj.getIzbor());
         double sumichka = Double.parseDouble(labelPari2.getText());
-        double zalog=0.0;
+        double zalog=0;
         do{
-      String zalogString =  JOptionPane.showInputDialog(null, "Заложете сума!");
-      zalog =Double.parseDouble(zalogString);
-      //labelZalog.setText(zalogString);
-      }while(zalog>sumichka);
+       String zalogString =  JOptionPane.showInputDialog(null, "Заложете сума!");
+      zalog = Double.parseDouble(zalogString);
+      if(zalog>=sumichka) JOptionPane.showMessageDialog(null, "Нямате толкова пари!", "", JOptionPane.WARNING_MESSAGE);
+      else break;
+      }while(1>0);
       
         obj.setBroi(0);
         Random rand = new Random();
@@ -381,7 +384,13 @@ public class SlotMachine extends javax.swing.JFrame {
         //System.out.println("suma:"+sumichka);
          
         btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
-        
+        } catch(NumberFormatException e){
+        JOptionPane.showMessageDialog(null, "Заложете сума!", "", JOptionPane.WARNING_MESSAGE);
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
+        } catch(ArithmeticException f){
+        JOptionPane.showMessageDialog(null, "Изберете картинка!", "", JOptionPane.WARNING_MESSAGE);
+        btnStart.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/handle_up.png")));
+        }
     }//GEN-LAST:event_btnStartActionPerformed
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
@@ -454,25 +463,15 @@ public class SlotMachine extends javax.swing.JFrame {
     private javax.swing.JRadioButton izbCash;
     private javax.swing.JRadioButton izbDiamond;
     private javax.swing.JRadioButton izbSedem;
-    private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
-    private javax.swing.JLabel jLabel5;
-    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JPanel jPanel1;
     private javax.swing.JPanel jPanel2;
     private javax.swing.JPanel jPanel3;
-    private javax.swing.JPanel jPanel4;
-    private javax.swing.JPanel jPanel5;
     private javax.swing.JPanel jPanel6;
-    private javax.swing.JLabel labelPari;
-    private javax.swing.JLabel labelPari1;
     private javax.swing.JLabel labelPari2;
-    private javax.swing.JLabel labelZalog;
-    private javax.swing.JLabel labelZalog1;
     private javax.swing.JLabel labelZalog2;
     private javax.swing.JLabel slot1;
     private javax.swing.JLabel slot2;

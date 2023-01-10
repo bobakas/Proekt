@@ -29,7 +29,7 @@ public class Profil2 extends javax.swing.JFrame {
     
     public Profil2() {
         initComponents();
-        
+                labelProfilna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/avatars/" + Integer.toString(Avatars.izborAvatar)+".png")));
     }
     
     public JLabel getLabelProfilna() {
@@ -137,7 +137,6 @@ public void write_in_file(String username, String email)
         btnBack.setText("← Назад");
         btnBack.setBorder(javax.swing.BorderFactory.createLineBorder(new java.awt.Color(50, 50, 50)));
         btnBack.setFocusPainted(false);
-        btnBack.setOpaque(false);
         btnBack.setRolloverEnabled(false);
         btnBack.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -251,7 +250,6 @@ public void write_in_file(String username, String email)
                 .addContainerGap())
         );
 
-        labelProfilna.setIcon(new javax.swing.ImageIcon(getClass().getResource("/snimki/profile_pic_big.png"))); // NOI18N
         labelProfilna.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 labelProfilnaMouseClicked(evt);
@@ -335,7 +333,7 @@ public void write_in_file(String username, String email)
                 .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addContainerGap())
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel2Layout.createSequentialGroup()
-                .addContainerGap(278, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addComponent(jPanel3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(100, 100, 100))
         );
